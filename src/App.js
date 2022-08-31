@@ -3,18 +3,25 @@ import {Component} from "react";
 
 class App extends Component {
     constructor() {
-        super()
+        super();
 
         this.state = {
             monsters: [
                 {
                     name: 'Linda',
+                    id: '123e',
                 },
                 {
                     name: 'Frank',
+                    id: '123r',
                 },
                 {
                     name: 'Jacky',
+                    id: '123t',
+                },
+                {
+                    name: 'Andy',
+                    id: '123y'
                 }
             ]
         }
@@ -25,7 +32,11 @@ class App extends Component {
             <div className="App">
                 {
                     this.state.monsters.map((monster) => {
-                            return <h1>{monster.name}</h1>
+                            return (
+                                <div key={monster.id}>
+                                    <h1 >{monster.name}</h1>
+                                </div>
+                            )
                         }
                     )
                 }
