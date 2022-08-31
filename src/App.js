@@ -1,10 +1,10 @@
 import './App.css';
 import { Component } from "react";
+import CardList from './components/card-list/card-list.component';
 
-class App extends Component {
+export default class App extends Component {
   constructor() {
     super();
-    console.log('constructor')
     this.state = {
       monsters: [],
       searchField: '',
@@ -16,9 +16,6 @@ class App extends Component {
       .then(response => (response.json()))
       .then((users) => this.setState(() => {
           return { monsters: users }
-        },
-        () => {
-          console.log('mount')
         }))
   };
 
@@ -30,7 +27,6 @@ class App extends Component {
   };
 
   render() {
-    console.log('render')
 
     const { monsters, searchField } = this.state
     const { onSearchChange} = this
@@ -47,19 +43,11 @@ class App extends Component {
           placeholder='Search monsters'
           onChange={ onSearchChange }
         />
-        {
-          filteredMonsters.map((monster) => {
-              return (
-                <div key={ monster.id }>
-                  <h1>{ monster.name }</h1>
-                </div>
-              )
-            }
-          )
-        }
+        <CardList
+          monsters={filteredMonsters}
+        />
       </div>
     );
   }
 }
 
-export default App;
