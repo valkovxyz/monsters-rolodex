@@ -1,16 +1,37 @@
 import './App.css';
+import {Component} from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-          Learn React
-      </header>
-    </div>
-  );
+class App extends Component {
+    constructor() {
+        super()
+
+        this.state = {
+            monsters: [
+                {
+                    name: 'Linda',
+                },
+                {
+                    name: 'Frank',
+                },
+                {
+                    name: 'Jacky',
+                }
+            ]
+        }
+    };
+
+    render() {
+        return (
+            <div className="App">
+                {
+                    this.state.monsters.map((monster) => {
+                            return <h1>{monster.name}</h1>
+                        }
+                    )
+                }
+            </div>
+        );
+    }
 }
 
 export default App;
