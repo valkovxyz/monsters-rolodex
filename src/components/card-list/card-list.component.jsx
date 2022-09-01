@@ -3,8 +3,9 @@ import { Component } from 'react';
 class CardList extends Component {
 
   render() {
+
+    console.log('cardlist')
     const { monsters } = this.props
-    console.log(monsters)
     return (
       <div>
         {monsters.map((monster) => (
