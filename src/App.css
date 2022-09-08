@@ -13,3 +13,8 @@ body {
   );
   text-align: center;
 }
+
+.app-title {
+  font-family: 'Combo', cursive;
+  color: rgba(45, 134, 128, 1);
+}
